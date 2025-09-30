@@ -6,10 +6,10 @@ import '../../globals.css';
 function Header() {
     const [open, setOpen] = useState (0)
     return (
-        <header className='w-full h-[100px] bg-black flex justify-center items-center'>
+        <header className='w-full h-[100px] bg-[var(--TopBg)] flex justify-center items-center fixed top-0 z-50'>
             <div className='  w-full h-full flex justify-center items-center'>
-                <div className='w-[35%] h-full p-3 flex justify-start items-center max-sm:hidden'>
-                    <ul className=' w-[80%] h-[90%] flex justify-center items-center gap-1 text-[20px]   rounded-full bg-[var(--UlBoxBg)] UlBox '>
+                <div className='w-[35%] h-full p-3 flex justify-start items-center max-sm:hidden max-xl:w-[50%] max-lg:w-[70%]'>
+                    <ul className=' w-[80%] h-[90%] flex justify-center items-center gap-1 text-[20px]   rounded-full bg-[var(--UlBoxBg)] UlBox  max-xl:w-[100%]'>
                         <li>
                             <div>
                                <p>
@@ -66,7 +66,7 @@ function Header() {
                         </svg>
                     </span>
                 </figure>
-                <div className='w-[30%] h-full flex justify-end items-center max-sm:hidden'>
+                <div className='w-[30%] h-full flex justify-end items-center max-sm:hidden max-xl:hidden'>
                     <div className=' w-[35%] h-[60%] rounded-full bg-[var(--UlBoxBg)] flex justify-center items-center'>
                         <div className='w-[90%] h-[80%]  flex justify-start items-center bg-white rounded-full HoverLetsGo text-[20px] gap-2'>
                             <span className='ml-1 w-[21%] h-[80%] bg-[var(--HoverUlColor)] rounded-full relative left-0  flex justify-center items-center overflow-hidden'>

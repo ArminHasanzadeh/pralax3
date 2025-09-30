@@ -1,18 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Nav/Header/Header";
-
-
+import Main from "./Component/Main/Main";
 
 export default function Home() {
-  const [data , setData] = useState (()=>{
-      
-  })
+
+
   return (
-    
-   <main className="bg-[var(--background)]">
-   <Header />
-   </main>
+    <main className="bg-[var(--UlBoxBg)] w-full h-[1000vh] overflow-x-hidden">
+      <Header />
+      <Main />
+    </main>
   );
 }
