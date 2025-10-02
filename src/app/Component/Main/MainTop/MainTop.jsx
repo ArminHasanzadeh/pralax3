@@ -22,9 +22,9 @@ function MainTop() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <section className="bg-[var(--TopBg)] w-full h-[100vh] mt-20 ">
+    <section className="bg-[var(--TopBg)] w-full h-[100vh] mt-20   pl-10 ">
       <div className=" flex-col flex justify-center items-center">
-        <div className={`flex justify-center items-center z-10 pl-10 text-2xl w-full h-auto text-white FontLogo ${text ? '-translate-y-50 opacity-0':''}`}>
+        <div className={`flex justify-center items-center z-10 text-2xl w-full h-auto text-white FontLogo ${text ? '-translate-y-50 opacity-0':''}`}>
           <p className="w-[35%] h-auto text-justify flex justify-start items-center flex-col">
             <span className="w-full">
               Our goal is to add a unique touch to your ideas

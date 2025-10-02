@@ -3,15 +3,15 @@
 :root {
   --UlBoxBg: #f2f1ec;
   --HoverUlColor: #fecd00;
-  --TopBg:#202023;
+  --TopBg: #202023;
+  --BgAllColor: #f8f8f5;
+  --BoxColor: #edeae3;
+  --FontColor: #565657;
 }
 
 body {
   padding: 0;
   margin: 0;
- 
-  
-  
 }
 .UlBox {
   > li {
@@ -75,38 +75,72 @@ body {
     }
   }
 }
-.HoverLetsGo{
+.HoverLetsGo {
   transition: 0.3s;
-  >span{
+  > span {
     transition: 0.8s;
-    
-    >.Arr1{
+
+    > .Arr1 {
       transition: 0.3s;
     }
-    >.Arr2{
+    > .Arr2 {
       transition: 0.3s;
     }
-  
   }
 
-  &:hover{
+  &:hover {
     gap: 20px;
-    >span{
+    > span {
       background: black;
-    >.Arr1{
-      left: 13;
+      > .Arr1 {
+        left: 13;
+      }
+      > .Arr2 {
+        left: 50;
+      }
     }
-    >.Arr2{
-      left: 50;
-    }
-  }
   }
 }
-.HamBox{
+.HamBox {
   transition: 0.5s;
 }
 .FontLogo {
-  transition:2s ; 
+  transition: 2s;
 }
 
+.anime1 {
+  animation: anime2 infinite 5s linear;
+}
 
+.anime2 {
+  animation: anime2 infinite 1.5s linear;
+  transition: 2s;
+}
+@keyframes anime2 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anime3 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.UlBox {
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--HoverUlColor);
+
+    .anime2 {
+      animation: anime3 1s;
+    }
+  }
+}
