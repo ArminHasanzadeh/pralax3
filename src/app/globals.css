@@ -133,7 +133,7 @@ body {
   }
 }
 
-.UlBox {
+.UlBo2 {
   transition: 0.3s;
 
   &:hover {
@@ -143,4 +143,81 @@ body {
       animation: anime3 1s;
     }
   }
+}
+.BoxLeft  {
+  transition: 0.5s;
+  > div {
+    >h4{
+      transition: 1s;
+    }
+    > p {
+      transition: 1s;
+    }
+  }
+
+  &:hover {
+    background: var(--BgAllColor);
+    > div {
+      > h4 {
+        transform: translateY(-80px);
+      }
+      > p {
+        opacity: 1;
+        transform: translateY(-200px);
+      }
+    }
+  }
+}
+.BoxRight {
+  transition: 0.5s;
+  &:hover {
+    background: var(--BgAllColor);
+    .PhotoBox {
+      transform: translateY(-320) translateX(-950) rotate(-45deg);
+    }
+  }
+}
+.PhotoBox {
+  transition: 2s;
+  transform: translateY(-320) rotate(45deg);
+}
+.BoxRight{
+    transition: 0.5s;
+  > div {
+    >h4{
+      transition: 1s;
+    }
+    > p {
+      transition: 1s;
+    }
+  }
+
+  &:hover {
+    background: var(--BgAllColor);
+    > div {
+      > h4 {
+        transform: translateY(-80px);
+      }
+      > p {
+        opacity: 1;
+        transform: translateY(-200px);
+      }
+    }
+  }
+}
+.MouseCircl{
+  background: rgba(255, 255, 255, 0);
+}
+.Mouse{
+  animation: MouseCircle 8s infinite linear;
+  pointer-events: none;
+}
+@keyframes MouseCircle{
+  from{
+      transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+
 }

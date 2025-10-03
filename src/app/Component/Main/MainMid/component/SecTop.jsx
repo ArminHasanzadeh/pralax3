@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 
 const data = [
@@ -86,20 +87,20 @@ function SecTop() {
           </span>
         </div>
       </section>
-      <section className="w-full h-full pr-20 pl-20 flex justify-center items-center flex-col gap-10">
-        <div className="w-full h-[50%] bg-[var(--UlBoxBg)]  rounded-full">
-          <ul className="flex justify-center items-center gap-3 w-full h-full">
+      <section className="w-full h-[100vh] pr-20 pl-20 flex justify-center items-center flex-col gap-20 max-sm:pr-0 max-sm:pl-0">
+        <div className="w-full h-[50%] bg-[var(--UlBoxBg)]  rounded-full  max-lg:h-full max-xl:rounded-2xl">
+          <ul className="flex justify-center items-center gap-3 w-full h-full max-sm:flex-col max-xl:flex-col">
             {data.map((val) => (
               <li
                 key={val.id}
                 onMouseEnter={() => setMouseEnter(val.id)}
-                className="w-[24%] h-[90%] flex justify-center items-center bg-[var(--BoxColor)] rounded-full UlBox"
+                className="w-[24%] h-[90%] flex justify-center items-center bg-[var(--BoxColor)] rounded-full UlBo2 max-sm:w-[90%] max-sm:flex-col max-sm:h-[24%] max-xl:w-[90%] max-xl:h-[22%] "
               >
                 <div className="w-full h-full flex justify-start items-center pl-10 gap-10 ">
-                  <span className="w-[70px] h-[70px] rounded-full bg-white flex justify-center items-center  text-5xl anime2">
+                  <span className="w-[70px] h-[70px] rounded-full bg-white flex justify-center items-center  text-5xl anime2 max-sm:w-[60px]  max-sm:h-[60px] ">
                     {val.desc}
                   </span>
-                  <p className="w-[60%] h-[10%] text-3xl font-bold flex justify-center items-center">
+                  <p className="w-[60%] h-[10%] text-3xl font-bold flex justify-center items-center max-sm:text-[16px]">
                     {val.title}
                   </p>
                 </div>
@@ -107,18 +108,19 @@ function SecTop() {
             ))}
           </ul>
         </div>
-        <div className=" w-full h-[30%] ">
-          <ul className="w-full h-full flex justify-center items-center">
+        <div className=" w-full h-[50%] ">
+          <ul className="w-full h-full flex justify-center items-center pt-20">
             <li
-              className='flex justify-center items-start g w-full h-full'
+              className='flex justify-center items-start g w-full h-full max-xl:flex-col max-xl:items-center'
             >
-              <p className="text-4xl w-[20%] flex justify-center items-start ">{data[mouseEnter - 1]?.title}</p>
-              <p className="text-2xl w-[30%] text-[var(--FontColor)]">
+              <p className="text-4xl w-[20%] flex justify-center items-start max-xl:w-full ">{data[mouseEnter - 1]?.title}</p>
+              <p className="text-2xl w-[30%] text-[var(--FontColor)] max-xl:w-full">
                {data[mouseEnter -1]?.TitleP}
               </p>
             </li>
           </ul>
         </div>
+        
       </section>
     </>
   );

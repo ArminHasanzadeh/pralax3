@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Aloo from "../../../../../public/izum_cover.png";
 import Image from "next/image";
+import LestB from "@/app/common/LestB";
 
 function MainTop() {
    const [text, setText] = useState(false);
@@ -22,10 +23,10 @@ function MainTop() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <section className="bg-[var(--TopBg)] w-full h-[100vh] mt-20   pl-10 ">
-      <div className=" flex-col flex justify-center items-center">
-        <div className={`flex justify-center items-center z-10 text-2xl w-full h-auto text-white FontLogo ${text ? '-translate-y-50 opacity-0':''}`}>
-          <p className="w-[35%] h-auto text-justify flex justify-start items-center flex-col">
+    <section className="bg-[var(--TopBg)] w-full h-[100vh] mt-20   ">
+      <div className="w-full h-full  flex-col flex justify-start items-center pt-20">
+        <div className={`flex h-[50%] w-full justify-center items-center z-10 text-2xl max-sm:flex-col text-white FontLogo ${text ? '-translate-y-50 opacity-0':''}`}>
+          <p className="w-[35%]   text-justify flex justify-start items-center flex-col max-sm:hidden ">
             <span className="w-full">
               Our goal is to add a unique touch to your ideas
             </span>
@@ -34,19 +35,19 @@ function MainTop() {
             </span>
             <span className="w-full">approach to each project.</span>
           </p>
-          <figure className='w-[40%] h-auto flex justify-start items-center relative z-1 bottom-0 '>
+          <figure className='w-[40%] h-auto flex justify-start items-center relative z-1 bottom-0  max-sm:w-full max-sm:flex-col'>
             <Image width={450} src={Aloo} alt="Aloo" />
           </figure>
-          <p className="w-[15%] text-end pr-10 flex-col flex justify-end items-center font-bold text-3xl">
-            <span className="text-end w-full">ADD</span> A SPICE TO TOUR
+          <p className="w-[15%] text-end pr-10 flex-col flex justify-end items-center font-bold text-3xl max-sm:justify-center max-sm:w-full max-sm:text-center max-sm:pr-0">
+            <span className="text-end w-full max-sm:text-center">ADD</span> A SPICE TO TOUR
             BISINESS{" "}
           </p>
         </div>
-        <div className={`absolute bottom-0 FontLogo ${text ? 'translate-y-90 scale-1 opacity-0' : ''}`}>
+        <div className={`lg:absolute max-sm:flex-col max-sm:justify-center max-sm:items-center max-sm:h-[50%]  h-full FontLogo w-[90%] max-sm:w-[100%] flex justify-start items-end ${text ? 'translate-y-90 scale-1 opacity-0' : ''}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1500"
-            height="537"
+            className="w-[100%] h-[70%]"
+            
             viewBox="0 0 1520 337"
             fill="none"
           >
@@ -79,7 +80,11 @@ function MainTop() {
               fill="#F8F8F5"
             />
           </svg>
+        
         </div>
+            <div className="hidden max-sm:flex w-[550px] h-[30%] justify-center items-center">
+              <LestB />
+            </div>
       </div>
     </section>
   );
