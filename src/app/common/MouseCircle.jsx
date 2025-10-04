@@ -15,7 +15,7 @@ function MouseCircle(props) {
         <path
           d="M53 8C77.8528 8 98 28.1472 98 53C98 77.8528 77.8528 98 53 98C28.1472 98 8 77.8528 8 53C8 28.1472 28.1472 8 53 8Z"
           stroke="white"
-          stroke-width="15"
+          strokeWidth="15"
         />
         <mask
           id="path-2-outside-1_5534_3100"
@@ -455,7 +455,7 @@ function MouseCircle(props) {
           r="0.75"
           fill="#202023"
           stroke="white"
-          stroke-width="0.75"
+          strokeWidth="0.75"
         />
         <circle
           cx="9.52637"
@@ -463,7 +463,7 @@ function MouseCircle(props) {
           r="0.75"
           fill="#202023"
           stroke="white"
-          stroke-width="0.75"
+          strokeWidth="0.75"
         />
         <circle
           cx="97.0625"
@@ -471,7 +471,7 @@ function MouseCircle(props) {
           r="0.75"
           fill="#202023"
           stroke="white"
-          stroke-width="0.75"
+          strokeWidth="0.75"
         />
         <circle
           cx="64.6865"
@@ -479,7 +479,7 @@ function MouseCircle(props) {
           r="0.75"
           fill="#202023"
           stroke="white"
-          stroke-width="0.75"
+          strokeWidth="0.75"
         />
       </svg>
     </div>
