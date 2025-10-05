@@ -8,7 +8,7 @@ export default function Home() {
 
 
   return (
-    <main className="bg-[var(--BgAllColor)] w-full h-[1000vh] overflow-hidden">
+    <main className="bg-[var(--BgAllColor)] w-full h-[2200vh] overflow-hidden">
       <Header />
       <Main />
     </main>

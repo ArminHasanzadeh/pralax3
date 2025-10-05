@@ -7,7 +7,7 @@ import LestB from '@/app/common/LestB';
 function Header() {
     const [open, setOpen] = useState (0)
     return (
-        <header className='w-full h-[100px] bg-[var(--TopBg)] flex justify-center items-center fixed top-0 z-50'>
+        <header className='w-full h-[100px] bg-[var(--TopBg)] flex justify-center items-center'>
             <div className='  w-full h-full flex justify-center items-center'>
                 <div className='w-[35%] h-full p-3 flex justify-start items-center max-sm:hidden max-xl:w-[50%] max-lg:w-[70%]'>
                     <ul className=' w-[80%] h-[90%] flex justify-center items-center gap-1 text-[20px]   rounded-full bg-[var(--UlBoxBg)] UlBox  max-xl:w-[100%]'>

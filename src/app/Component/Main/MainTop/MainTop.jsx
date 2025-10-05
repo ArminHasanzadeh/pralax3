@@ -23,7 +23,7 @@ function MainTop() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <section className="bg-[var(--TopBg)] w-full h-[100vh] mt-20   ">
+    <section className="bg-[var(--TopBg)] w-full h-[100vh]   ">
       <div className="w-full h-full  flex-col flex justify-start items-center pt-20">
         <div className={`flex h-[50%] w-full justify-center items-center z-10 text-2xl max-sm:flex-col text-white FontLogo ${text ? '-translate-y-50 opacity-0':''}`}>
           <p className="w-[35%]   text-justify flex justify-start items-center flex-col max-sm:hidden ">

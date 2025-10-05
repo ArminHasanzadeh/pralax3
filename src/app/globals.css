@@ -224,3 +224,34 @@ body {
 .FontScorl{
   transition: 1s;
 }
+/* در فایل CSS گلوبال یا module */
+.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* برای جلوگیری از flash content */
+.horizontal-section {
+    will-change: transform;
+}
+.TransitionForBox{
+  transition: 1s linear;
+}
+.BoxStart{
+  transition: 0.3s;
+}
+.BoxYour{
+  transition: 0.7s;
+}
+.BoxProject{
+ transition: 1.1s;
+}
+.BoxStart2{
+  transition: 0.7s;
+}
+.BoxYour2{
+  transition: 1.1s;
+}
+.BoxProject2{
+ transition: 1.7s;
+}
