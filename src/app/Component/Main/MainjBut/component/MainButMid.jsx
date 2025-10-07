@@ -14,20 +14,30 @@ if (typeof window !== "undefined") {
 
 function MainButMid(props) {
   const [text, setText] = useState(false);
+  const Scooll = useRef();
+  const [hasTriggered, setHasTriggered] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 15000) {
-        setText(true);
-      } else {
-        setText(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setText(entry.isIntersecting);
+      },
+      {
+        threshold: 0.3, // وقتی 30% المنت در viewport باشد
       }
-      console.log(window.scrollY);
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (Scooll.current) {
+      observer.observe(Scooll.current);
+    }
+
+    return () => {
+      if (Scooll.current) {
+        observer.unobserve(Scooll.current);
+      }
+    };
   }, []);
+
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const horizontalWrapRef = useRef(null);
@@ -47,11 +57,11 @@ function MainButMid(props) {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `+=${totalWidth}`,
+          end: () => `+=${totalWidth} bottom`,
           pin: true,
-          pinSpacing: false,
           scrub: 1,
-          anticipatePin: 0.3,
+          anticipatePin: 1,
+          pinSpacing: true,
         },
       });
 
@@ -69,7 +79,7 @@ function MainButMid(props) {
       <div ref={contentRef} className="h-full flex relative ">
         <div ref={horizontalWrapRef} className="h-full flex">
           <div className="horizontal-section flex-shrink-0 w-screen h-full flex justify-center items-center max-lg:flex-col ">
-            <div className="w-[50%] h-[80%] flex justify-center items-center border-r-1 border-black max-lg:hidden">
+            <div className="w-[50%] h-[80%] flex justify-center items-center border-r-1 border-black  max-lg:border-0">
               <figure>
                 <Image
                   className="w-[80%] h-[80%] rounded-full  "
@@ -115,8 +125,8 @@ function MainButMid(props) {
                 </div>
               </div>
             </div>
-            <div className="w-[50%] h-[80%] flex justify-center items-center border-r-1 border-black max-lg:hidden">
-              <figure className="flex justify-center items-center ">
+            <div className="w-[50%] h-[80%] flex justify-center items-center border-r-1 border-black max-lg:border-0 ">
+              <figure className="flex justify-center items-center w-full">
                 <Image
                   className="w-[55%] h-[50%] rounded-3xl   "
                   src={ButImg2}
@@ -144,7 +154,7 @@ function MainButMid(props) {
                 </div>
               </div>
             </div>
-            <div className="w-[50%] h-[80%] flex justify-center items-center border-r-1 border-black max-lg:hidden ">
+            <div className="w-[50%] h-[80%] flex justify-center items-center border-r-1 border-black max-lg:border-0 ">
               <figure className="flex justify-center items-center">
                 <Image
                   className="w-[80%] h-[80%] rounded-full"
@@ -192,45 +202,75 @@ function MainButMid(props) {
                 </div>
               </div>
             </div>
+            
           </div>
-          <div className="horizontal-section flex-shrink-0 w-screen h-full flex justify-center items-center pt-30 max-lg:hidden  ">
+          <div className="horizontal-section flex-shrink-0 w-screen h-full flex justify-center items-center pt-30  ">
             <section
+              ref={Scooll}
               className={` w-full h-full  flex justify-start items-center flex-col opacity-0  TransitionForBox ${
                 text ? "opacity-100" : ""
               }`}
             >
               <div className="flex w-full h-[30%] justify-center items-center flex-col text-2xl ">
-                <div className='w-full h-[30%] flex justify-center items-center gap-3 '>
-                  <span className={`flex justify-center items-center w-[5%] h-[90%] TransitionForBox BoxStart bg-black text-white rounded-4xl ${text ? '-translate-y-10':''}`}>
+                <div className="w-full h-[30%] flex justify-center items-center gap-3 ">
+                  <span
+                    className={`flex justify-center items-center w-[5%] max-lg:w-[20%] h-[90%] TransitionForBox BoxStart bg-black text-white rounded-4xl ${
+                      text ? "-translate-y-10" : ""
+                    }`}
+                  >
                     {" "}
                     Start
                   </span>
-                  <span className={`flex justify-center items-center w-[5%] h-[90%] rounded-2xl BoxYour bg-[var(--UlBoxBg)] ${text ? '-translate-y-10':''}`}>
+                  <span
+                    className={`flex justify-center items-center w-[5%] max-lg:w-[20%] h-[90%] rounded-2xl BoxYour bg-[var(--UlBoxBg)] ${
+                      text ? "-translate-y-10" : ""
+                    }`}
+                  >
                     Your
                   </span>
-                  <span className={` flex justify-center items-center w-[7%] h-[90%] rounded-4xl BoxProject  bg-[var(--UlBoxBg)] ${text ? '-translate-y-10':''}`}>
+                  <span
+                    className={` flex justify-center items-center w-[7%] max-lg:w-[20%] h-[90%] rounded-4xl BoxProject  bg-[var(--UlBoxBg)] ${
+                      text ? "-translate-y-10" : ""
+                    }`}
+                  >
                     Project
                   </span>
                 </div>
                 <div className="w-full h-[30%] flex justify-center items-center gap-1">
-                  <span className={` flex justify-center items-center w-[6%] h-[90%] rounded-4xl BoxStart2 bg-[var(--UlBoxBg)] ${text ? '-translate-y-10':''}`}>
+                  <span
+                    className={` flex justify-center items-center w-[6%] max-lg:w-[20%] h-[90%] rounded-4xl BoxStart2 bg-[var(--UlBoxBg)] ${
+                      text ? "-translate-y-10" : ""
+                    }`}
+                  >
                     Today
                   </span>
-                  <span className={` flex justify-center items-center w-[5%] h-[90%] rounded-2xl BoxYour2 bg-[var(--UlBoxBg)] ${text ? '-translate-y-10':''}`}>
+                  <span
+                    className={` flex justify-center items-center w-[5%] max-lg:w-[20%] h-[90%] rounded-2xl BoxYour2 bg-[var(--UlBoxBg)] ${
+                      text ? "-translate-y-10" : ""
+                    }`}
+                  >
                     Whit
                   </span>
-                  <span className={` flex justify-center items-center w-[3%] h-[90%] rounded-2xl BoxProject2 bg-[var(--UlBoxBg)] ${text ? '-translate-y-10':''}`}>
+                  <span
+                    className={` flex justify-center items-center w-[3%] max-lg:w-[20%] h-[90%] rounded-2xl BoxProject2 bg-[var(--UlBoxBg)] ${
+                      text ? "-translate-y-10" : ""
+                    }`}
+                  >
                     us
                   </span>
                 </div>
               </div>
               <div className="w-full h-[30%] flex justify-center items-center">
                 <figure className="w-full h-full flex justify-center items-center">
-                  <Image className="w-[10%] h-full" src={Aloo} alt="Aloo" />
+                  <Image
+                    className="w-[10%] h-full max-lg:w-[20%] max-sm:w-[50%]"
+                    src={Aloo}
+                    alt="Aloo"
+                  />
                 </figure>
               </div>
               <div className="w-full h-[30%] flex justify-center items-center">
-                <p className="flex justify-center items-center text-2xl w-[25%] text-center">
+                <p className="flex justify-center items-center text-2xl w-[25%] text-center max-lg:w-[50%] max-md:w-[70%]  max-sm:w-full">
                   We are ready to hear your ideas and offer creative solutions
                   that will highlight the uniqueness of your project.
                 </p>

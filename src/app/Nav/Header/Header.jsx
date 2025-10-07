@@ -5,7 +5,7 @@ import LestB from '@/app/common/LestB';
 
 
 function Header() {
-    const [open, setOpen] = useState (0)
+    const [open, setOpen] = useState ()
     return (
         <header className='w-full h-[100px] bg-[var(--TopBg)] flex justify-center items-center'>
             <div className='  w-full h-full flex justify-center items-center'>
@@ -72,7 +72,7 @@ function Header() {
                 </div>
                 <div className='max-sm:visible sm:hidden w-[50%] h-full  flex justify-end pr-5 items-center'>
                         <button onClick={()=> setOpen((val) => !val)} className='bg-white w-[50%] h-[40%]  rounded-4xl relative'>Menu</button>
-                        <div className={`absolute left-0  bg-black w-[100%] h-[100vh] HamBox ${open ? 'top-300' : 'top-0' }`}>
+                        <div className={`fixed left-0 top-0  bg-black w-[100%] h-[100vh] HamBox z-50 ${open ? '-left-300 fixed' : 'left-300 ' }`}>
 
                         <button onClick={()=> setOpen((val) => !val)} className='bg-white  h-[40%]  rounded-4xl relative'>Menu</button>
                         </div>

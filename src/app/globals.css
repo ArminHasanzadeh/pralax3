@@ -255,3 +255,28 @@ body {
 .BoxProject2{
  transition: 1.7s;
 }
+.SvgHover{
+   >svg{
+      >path{
+        transition: 0.3s;
+        
+      }
+    }
+  &:hover{
+    >svg{
+      >path{
+        fill: rgba(0, 0, 0, 0.274);
+      }
+    }
+  }
+}
+.UlFooter{
+  >ul{
+    >li{
+       transition: 0.3s;
+      &:hover{
+        color: rgba(0, 0, 0, 0.281);
+      }
+    }
+  }
+}
